@@ -58,8 +58,12 @@
  }
 
 */
-#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/select.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
@@ -107,8 +111,6 @@
 #define QP_DATA         0x310           /* Data Port I/O Address */
 #define QP_STATUS       0x311           /* Status Port I/O Address */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <asm/io.h>
 
 static int qp_data = QP_DATA;
