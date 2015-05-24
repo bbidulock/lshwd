@@ -1,5 +1,4 @@
-# http://bliss-solutions.org/archlinux/wiki/index.php/pcmciaTable
-# snapshot Tue 2004-Sep-28
+snapshot Tue 2005-Mar-25
 
 0x89    0xaa    "iflash2_mtd" "Intel Series 100 Flash"                         "memory"
 0x89    0xa0    "iflash2+_mtd" "Intel Series 2+ Flash"                         "memory"
@@ -96,6 +95,7 @@
 0x026f  0x0305  "orinoco_cs"  "Buffalo WLI-PCM-S11"                            "wireless"
 0x026f  0x0307  "pcnet_cs"    "Buffalo LPC2-CLT Ethernet"                      "ethernet"
 0x026f  0x0309  "axnet_cs"    "Buffalo LPC4-CLX Fast Ethernet"                 "ethernet"
+0x0045  0x0401  "unknown"     "CFA 512MB CKS"                                  "memory"
 0x0105  0x0500  "tulip_cb"    "TDK NetworkFlyer 10/100 Fast Ethernet"          "cardbus"
 0x0109  0x0501  "smc91c92_cs/serial_cs" "Motorola Mariner Ethernet/Modem"      "multicard"
 0x021b  0x0510  "tulip_cb"     "PrimeXPress 10/100 Fast Ethernet"              "cardbus"
