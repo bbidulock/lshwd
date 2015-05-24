@@ -498,7 +498,8 @@ find_ethernet_devices(char *module)
 {
 	DIR *dirp;
 	struct dirent *direntry;
-	char dirbuf[127], result[127], *res = result;
+	static char result[127];
+	char dirbuf[127], *res = result;
 
 	memset(dirbuf, 0, sizeof(dirbuf));
 	memset(result, 0, sizeof(result));
