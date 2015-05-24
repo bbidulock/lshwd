@@ -1,0 +1,140 @@
+> about
+lshwd - lists hardware devices and their approp modules. currently supports pci
+,usb, pcmcia, and firewire devices. lshwd uses pcitable & usbtable files (can
+be located at same directory or /usr/share/hwdata) for displaying extended
+description and module names. module names are then parsed for generic names
+and changes accordingly.
+
+> purpose
+lshwd is a simple device lister with some very handy options. ideally, its
+functionality should be similiar to kudzu/hwsetup but without the lag. when used
+with '-a' it should auto-load approp modules. lshwd is intended for anyone who
+wants to quickly check for his hardware specific modules without too much
+hastle, for quick live-cds auto-detection and configure, 1st time linux n00bs,
+etc. lshwd tries to mimic the lsxxx tools family (lspci,lsusb) output when no
+commandline is specified. using '-cc' option provides a more "user-friendly"
+output.
+
+> why
+hmm... out of bordem? mostly for knowledge :-)
+when i entered the linux world, i used hwd to identify my hardware and to direct
+me to which modules i should use - this all concept was very new to me. however,
+the more i used hwd, the more i got frustrated - its performance time was ~22
+sec on my pc. this little anooyance was insignificant since hwd is not a
+daily-use tool. however, once i considered making my own Arch-Live-CD, ~22 sec
+delay at startup was too much to for me to bare... so i decided to code a new
+engine for hwd - and there u have it - lshwd.
+
+> todo
+- improve mouse probe
+- add cpu detection (and sensors maybe?)
+- add hd info (ide/scsi/sata)
+
+> usage
+lshwd [-a] [-c] [-cc] [-d] [-id] [-m] [-n] [-ox]
+  -a   auto-modprobe 
+  -c   categorized output
+  -cc  colorized & categorized output
+  -d   display default description
+  -id  display hardware id
+  -m   machine readable format
+  -n   no duplicates
+  -ox  output X info to /tmp/xinfo (only gfx card section)
+
+> changes
+version 1.1.3
++ added static usbhid module for usb mouse
+
+version 1.1.2
++ updated pcitable
+
+version 1.1.1
++ updated pcmciatable
+
+version 1.1
++ fixed sort_pci_list bug
++ changed colors to fit Arch scheme
+
+version 1.0
++ fixed (yet again) mouse issue
++ added devices coloring
++ added hardware id's display
++ added Cardbus pci check
++ changed isLoaded modules procedure (syscall fails) 
++ added Arch package and PKGBUILD
+
+version 1.0-rc1
++ fixed mouse issue
++ added comments to code
++ added xinfo output (saved to /tmp/xinfo)
++ added attached usb communication device 
++ minor bugs fixes
+
+version 0.6
++ added firewire support
++ added X info for gfx cards
++ fixed some minor display bugs
++ fixed files permissions
+
+version 0.5
++ added pcmcia support
++ added Makefile
+
+version 0.4-2
++ added usb mouse device (static)
++ added mount to /proc/bus/usb
+
+version 0.4-1
++ fixed usb sorting bug and added usb check
++ added autoload modules
++ fixed compiler warnings (leftovers, etc)
+
+version 0.4
++ usb recoded, now using usblib
++ changed usb class names (hopefully correct this time)
++ minor bugs fixes and code cleaning (code size reduced) 
+
+version 0.3
++ added usb devices detection
++ changed and added some commandline options 
++ changed output formats
+
+version 0.2
++ changed default options
++ added new output formats
++ added new commandline options
++ added psaux mouse detection
++ tries to mimic lsxxx tools look-n-feel on default
+
+version 0.1
++ pci devices supported
++ ansi output
+
+> compiling
+you must have latest pciutils & usbutils packages to compile lshwd properly.
+edit the Makefile if u wish, and execute make.
+
+> files used
+/usr/share/hwdata/Cards
+/usr/share/hwdata/pcitable
+/usr/share/hwdata/usbtable
+/usr/share/hwdata/pcmciatable
+/usr/share/pci.ids (from pciutils package)
+/usr/share/usb.ids (from usbutils package)
+
+we are keeping same file names and directory structure as kudzu/hwsetup, to
+minimize problems on distributions other than Arch linux. see contact info
+for latest files versions.
+
+> contact
+for ideas, questions and bug reports, email to z4ziggy at bliss-solutions dot org
+
+for latest cvs snapshot, check out http://www.bliss-solutions.org/archlinux/webpm/ 
+(use guest/guest for user/pass)
+
+for latest pcitable/usbtable/Cards, check out 
+http://cvs.mandrakesoft.com/cgi-bin/cvsweb.cgi/soft/ldetect-lst/lst/
+
+for latest pcmciatable, check out
+http://user-contributions.org/projects/hwd/wrk/4.5/usr/share/hwdata/pcmciatable
+

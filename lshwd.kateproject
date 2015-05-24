@@ -1,0 +1,7 @@
+[Project Dir]
+Dirs=pcmcia
+Files=lshwd.c/pcmcia.c/pcmcia.h/psaux.c/psaux.h/usb_names.c/usb_names.h
+
+[Project File]
+Name=lshwd
+Type=Default
